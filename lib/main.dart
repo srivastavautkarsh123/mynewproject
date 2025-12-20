@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Text('Hello world this is my new project',textDirection: TextDirection.rtl,);
+    return Text('Hello world',textDirection: TextDirection.rtl,);
   }
   
 }
