@@ -1,9 +1,28 @@
 import 'package:flutter/material.dart';
 
-class CurrencyConverterMaterialPage extends StatelessWidget {
+
+class CurrencyConverterMaterialPage extends StatefulWidget {
+  const CurrencyConverterMaterialPage({super.key});
+
+  @override
+  State<CurrencyConverterMaterialPage> createState() {
+    print('constructor called');
+    return _CurrencyConverterMaterialPageState();
+
+  }
+     
+}
+class _CurrencyConverterMaterialPageState
+    extends State<CurrencyConverterMaterialPage> {
+      double result = 0;
+    final TextEditingController textEditingController = TextEditingController();
+   
+
+ 
   @override
   Widget build(BuildContext context) {
-    
+     //final textEditingController = TextEditingController();
+  
   final border = OutlineInputBorder(
                     borderSide: BorderSide(
                       width: 2,
@@ -13,7 +32,8 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                   ),
                 );
     // TODO: implement build
-    return Scaffold(
+    return 
+    Scaffold(
     
         backgroundColor: Colors.blueGrey,
         appBar: AppBar(
@@ -27,7 +47,8 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
             children: [
               
               Text(
-                '0',
+              'INR $result', 
+              // result.toString(),
               
                 style: TextStyle(
                   fontSize: 45,
@@ -39,6 +60,7 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
+                  controller: textEditingController,
                   style: TextStyle(color: Colors.black),
                 
                   decoration: InputDecoration(
@@ -61,9 +83,13 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: TextButton(
+                child: ElevatedButton(
                   onPressed: () {
-                  
+                   
+                    setState(() {
+                       result = double.parse(textEditingController.text)*89.91;
+
+                    });
                   },
                   child: Text(
                     'Convert to INR',
@@ -72,7 +98,7 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                style: TextButton.styleFrom(
+                style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
                   foregroundColor: Colors.white,
                   minimumSize: Size(double.infinity,50),
@@ -91,5 +117,5 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
     );
   
   
-}
-}   
+  }
+    }
