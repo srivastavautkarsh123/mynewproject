@@ -47,7 +47,8 @@ class _CurrencyConverterMaterialPageState
             children: [
               
               Text(
-              'INR $result', 
+                'INR ${result!=0 ? result.toStringAsFixed(2): result.toStringAsFixed(0)}', 
+            
               // result.toString(),
               
                 style: TextStyle(
